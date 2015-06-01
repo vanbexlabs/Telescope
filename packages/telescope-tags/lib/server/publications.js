@@ -1,5 +1,5 @@
 Meteor.publish('categories', function() {
-  if(canViewById(this.userId)){
+  if(Users.can.viewById(this.userId)){
     return Categories.find();
   }
   return [];

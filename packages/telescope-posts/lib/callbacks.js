@@ -7,6 +7,7 @@ function afterPostSubmitOperations (post) {
 
   Meteor.users.update({_id: userId}, {$inc: {"telescope.postCount": 1}});
   Telescope.upvoteItem(Posts, post, postAuthor);
+  Telescope.downvoteItem(Posts, post, postAuthor);
   return post;
 }
 Telescope.callbacks.add("postSubmitAsync", afterPostSubmitOperations);
